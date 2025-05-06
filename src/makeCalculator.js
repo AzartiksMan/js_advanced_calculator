@@ -4,45 +4,41 @@
  * @return {object}
  */
 function makeCalculator() {
-  let result = 0;
-
   const calculator = {
-    get result() {
-      return result;
-    },
+    result: 0,
 
     operate(callBack, operator) {
-      callBack(operator);
+      callBack.call(this, operator);
 
       return this;
     },
 
     add(operator) {
-      result += operator;
+      this.result += operator;
 
       return this;
     },
 
     subtract(operator) {
-      result -= operator;
+      this.result -= operator;
 
       return this;
     },
 
     multiply(operator) {
-      result *= operator;
+      this.result *= operator;
 
       return this;
     },
 
     divide(operator) {
-      result /= operator;
+      this.result /= operator;
 
       return this;
     },
 
     reset() {
-      result = 0;
+      this.result = 0;
 
       return this;
     },
